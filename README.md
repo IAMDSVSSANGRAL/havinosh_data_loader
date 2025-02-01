@@ -5,6 +5,7 @@ A lightweight Python package for efficient data loading into PostgreSQL database
 ```bash
 pip install postgres-data-loader
 
+
 ## 🛠️ project structure
 postgres_data_loader/
 ├── postgres_data_loader/
