@@ -1,15 +1,20 @@
 from setuptools import setup, find_packages
 from typing import List
 
-def get_requirements(file_path: str) -> List[str]:
-    """
-    Reads the requirements file and returns a list of dependencies.
-    """
-    with open(file_path, "r") as file:
-        requirements = [line.strip() for line in file.readlines() if line.strip()]
+HYPEN_E_DOT='-e .'
+def get_requirements(file_path:str)->List[str]:
+    '''
+    this function will return the list of requirements
+    '''
+    requirements=[]
+    with open(file_path) as file_obj:
+        requirements=file_obj.readlines()
+        requirements=[req.replace("\n","") for req in requirements]
+
+        if HYPEN_E_DOT in requirements:
+            requirements.remove(HYPEN_E_DOT)
     
-    # Remove '-e .' if present
-    return [req for req in requirements if req != "-e ."]
+    return requirements
 
 setup(
     name="havinosh_data_loader",
@@ -17,7 +22,6 @@ setup(
     author="Vishal Singh Sangral",
     author_email="support@havinosh.com",
     description="A Python package to dynamically load CSV files into PostgreSQL tables.",
-    long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/havinosh_data_loader",  # Update with actual repo
     packages=find_packages(),
