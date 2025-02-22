@@ -16,8 +16,6 @@ list_of_items = [
     f"{project_name}/db_utils.py",
     f"{project_name}/exception.py",
     f"{project_name}/logger.py",
-    f"{project_name}/utils.py",
-    f"{project_name}/createtable.py",
     "scripts/ingest.py",
     "tests/test_process_csv.py",
     "csv_files/",

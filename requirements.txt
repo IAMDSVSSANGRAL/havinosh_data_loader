@@ -2,4 +2,5 @@ numpy
 pandas
 sqlalchemy
 psycopg2
+python-dotenv
 #-e .
