@@ -1,5 +1,5 @@
+numpy
 pandas
 sqlalchemy
 psycopg2
-
-#-e .
+-e .

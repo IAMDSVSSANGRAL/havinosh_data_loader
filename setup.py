@@ -20,6 +20,7 @@ def get_requirements(file_path:str)->List[str]:
 
 setup(
 name='havinosh_data_loader',
+description='using this application you can load your csv file as postgresql table',
 version='0.0.1',
 author='vishal_singh_sangral',
 author_email='support@havinosh.com',
