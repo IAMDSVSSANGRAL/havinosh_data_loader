@@ -1,4 +1,4 @@
-# **📦 HAVINOSH_DATA_LOADER: CSV to PostgreSQL Ingestion**  
+# **📦 havinosh_data_loader: CSV to PostgreSQL Ingestion**  
 **Seamlessly load CSV files into PostgreSQL dynamically.**  
 
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)  
@@ -9,7 +9,7 @@
 ---
 
 ## 🚀 **Overview**  
-`HAVINOSH_DATA_LOADER` is a Python package designed to automatically **detect CSV structure**, **create tables**, and **insert data into PostgreSQL** with minimal effort. Just drop your CSV files into a folder, and `loader` will handle everything dynamically.  
+`havinosh_data_loader` is a Python package designed to automatically **detect CSV structure**, **create tables**, and **insert data into PostgreSQL** with minimal effort. Just drop your CSV files into a folder, and `loader` will handle everything dynamically.  
 
 ---
 
@@ -52,7 +52,7 @@ csv_to_postgresql/
 ### **1️⃣ Install via pip**  
 Once published to PyPI, you can install `loader` using:  
 ```sh
-pip install HAVINOSH_DATA_LOADER
+pip install havinosh_data_loader
 ```
 
 ### **2️⃣ Install from Source**  
