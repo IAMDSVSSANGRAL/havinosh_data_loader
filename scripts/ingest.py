@@ -1,6 +1,6 @@
 import argparse
-from loader.process_csv import process_csv
-from loader.logger import logger
+from havinosh_data_loader.process_csv import process_csv
+from havinosh_data_loader.logger import logger
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="CSV to PostgreSQL ingestion script")

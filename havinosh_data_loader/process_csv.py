@@ -1,8 +1,8 @@
 import pandas as pd
 import os
-from loader.db_utils import create_table, insert_data
-from loader.logger import logger
-from loader.exception import LoaderException
+from havinosh_data_loader.db_utils import create_table, insert_data
+from havinosh_data_loader.logger import logger
+from havinosh_data_loader.exception import LoaderException
 import sys
 
 def process_csv(csv_folder="csv_files"):

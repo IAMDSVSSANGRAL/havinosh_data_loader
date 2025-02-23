@@ -1,5 +1,5 @@
 import unittest
-from loader.process_csv import process_csv
+from havinosh_data_loader.process_csv import process_csv
 
 class TestCSVProcessing(unittest.TestCase):
     def test_process_csv(self):

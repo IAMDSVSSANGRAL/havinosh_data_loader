@@ -3,4 +3,6 @@ pandas
 sqlalchemy
 psycopg2
 python-dotenv
+setuptools
+
 -e .

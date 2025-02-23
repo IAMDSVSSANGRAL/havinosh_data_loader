@@ -1,8 +1,8 @@
 import psycopg2
 import pandas as pd
-from loader.config import DB_CONFIG
-from loader.logger import logger
-from loader.exception import LoaderException
+from havinosh_data_loader.config import DB_CONFIG
+from havinosh_data_loader.logger import logger
+from havinosh_data_loader.exception import LoaderException
 import sys
 
 def get_db_connection():
