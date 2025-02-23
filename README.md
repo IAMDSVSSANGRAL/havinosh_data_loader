@@ -25,8 +25,8 @@
 
 ## 📂 **Project Structure**  
 ```
-csv_to_postgresql/
-│── loader/                   # Main package directory
+havinosh_data_loader/
+│── havinosh_data_loader/                   # Main package directory
 │   ├── __init__.py           # Package initialization
 │   ├── config.py             # Database configuration
 │   ├── process_csv.py        # CSV processing logic
@@ -77,18 +77,30 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 
-### **2️⃣ Add CSV Files**  
-Place your CSV files inside the **`csv_files/`** directory.
-
-### **3️⃣ Run the Ingestion Script**  
-Run the ingestion script to process all CSV files:  
+### **2️⃣ Using the CLI**  
+Place your CSV files inside the **`csv_files/`** directory and run the ingestion script:
 ```sh
 python scripts/ingest.py
 ```
-
 Alternatively, if using the CLI command:
 ```sh
 loader --folder csv_files
+```
+
+### **3️⃣ Using the Python Package in Your Script**  
+You can also use `havinosh_data_loader` programmatically within a Python script:
+
+```python
+from havinosh_data_loader.process_csv import CSVProcessor
+
+# Define the folder where CSV files are stored
+csv_folder = "csv_files/"
+
+# Initialize the processor
+processor = CSVProcessor(csv_folder)
+
+# Start the ingestion process
+processor.process_files()
 ```
 
 ---
@@ -122,4 +134,4 @@ Contributions are welcome! Please follow these steps:
 ---
 
 ### **🚀 Happy Data Ingestion!**
-Let me know if you need any modifications! 😊
+
