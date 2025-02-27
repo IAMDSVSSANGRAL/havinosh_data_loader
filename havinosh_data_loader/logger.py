@@ -24,5 +24,5 @@ console_handler.setFormatter(logging.Formatter("[%(asctime)s] %(lineno)d %(name)
 logging.getLogger().addHandler(console_handler)
 
 #Example Log message
-logger = logging.getLogger("TenYearCHDLOGGER")
+logger = logging.getLogger("havinoshloaderlogger")
 logger.info("Logging setup complete!")

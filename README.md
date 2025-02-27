@@ -1,4 +1,4 @@
-# **📦 havinosh_data_loader: CSV to PostgreSQL Ingestion**  
+### **📦 `havinosh_data_loader`: CSV to PostgreSQL Ingestion**  
 **Seamlessly load CSV files into PostgreSQL dynamically.**  
 
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)  
@@ -9,7 +9,7 @@
 ---
 
 ## 🚀 **Overview**  
-`havinosh_data_loader` is a Python package designed to automatically **detect CSV structure**, **create tables**, and **insert data into PostgreSQL** with minimal effort. Just drop your CSV files into a folder, and `loader` will handle everything dynamically.  
+`havinosh_data_loader` is a Python package designed to automatically **detect CSV structure**, **create tables**, and **insert data into PostgreSQL** with minimal effort. Just drop your CSV files into a folder, and `havinosh_data_loader` will handle everything dynamically.  
 
 ---
 
@@ -18,7 +18,7 @@
 ✅ **Dynamic Schema Detection** – Infers data types automatically  
 ✅ **Batch Data Insertion** – Efficiently loads large datasets  
 ✅ **Error Handling** – Logs errors and provides detailed debugging  
-✅ **Environment Configurations** – Uses `.env` for secure database credentials  
+✅ **Environment & CLI Configurations** – Supports `.env` file & CLI args for database credentials  
 ✅ **Modular & Extensible** – Well-structured for easy modifications  
 
 ---
@@ -29,12 +29,12 @@ havinosh_data_loader/
 │── havinosh_data_loader/                   # Main package directory
 │   ├── __init__.py           # Package initialization
 │   ├── config.py             # Database configuration
-│   ├── process_csv.py        # CSV processing logic
+│   ├── process_csv.py        # CSV processing logic (OOP-based)
 │   ├── db_utils.py           # PostgreSQL connection utilities
 │   ├── exception.py          # Custom exception handling
 │   ├── logger.py             # Logging setup
 │── scripts/                  # Command-line scripts
-│   ├── ingest.py             # Main ingestion script
+│   ├── ingest.py             # Main ingestion script (CLI)
 │── tests/                    # Unit tests
 │   ├── test_process_csv.py
 │── csv_files/                # CSV storage (ignored in production)
@@ -50,7 +50,7 @@ havinosh_data_loader/
 ## 🛠 **Installation**  
 
 ### **1️⃣ Install via pip**  
-Once published to PyPI, you can install `loader` using:  
+Once published to PyPI, you can install `havinosh_data_loader` using:  
 ```sh
 pip install havinosh_data_loader
 ```
@@ -59,7 +59,7 @@ pip install havinosh_data_loader
 Clone the repository and install dependencies:  
 ```sh
 git clone https://github.com/IAMDSVSSANGRAL/havinosh_data_loader.git  
-cd loader  
+cd havinosh_data_loader  
 pip install -r requirements.txt  
 ```
 
@@ -68,6 +68,7 @@ pip install -r requirements.txt
 ## ⚙ **Usage**  
 
 ### **1️⃣ Set Up Your Environment**  
+#### 🔹 **Option 1: Using a `.env` File**  
 Create a **`.env`** file in the root directory and add:  
 ```ini
 DB_NAME=your_database
@@ -77,30 +78,44 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 
+#### 🔹 **Option 2: Providing Credentials via CLI**  
+No need for `.env` if you pass credentials directly via CLI.
+
+---
+
 ### **2️⃣ Using the CLI**  
-Place your CSV files inside the **`csv_files/`** directory and run the ingestion script:
+#### **Basic Ingestion (Uses `.env` for DB credentials)**  
 ```sh
-python scripts/ingest.py
+python scripts/ingest.py --folder csv_files
 ```
-Alternatively, if using the CLI command:
+
+#### **Ingest with Custom Database Credentials**  
 ```sh
-loader --folder csv_files
+python scripts/ingest.py --db_name mydb --user admin --password mypass --folder csv_files
 ```
+
+---
 
 ### **3️⃣ Using the Python Package in Your Script**  
 You can also use `havinosh_data_loader` programmatically within a Python script:
 
 ```python
+from havinosh_data_loader.db_utils import Database
 from havinosh_data_loader.process_csv import CSVProcessor
+from havinosh_data_loader.config import Config
+
+# Load database configuration from .env
+config = Config()
+db = Database(config.get_config())
 
 # Define the folder where CSV files are stored
 csv_folder = "csv_files/"
 
 # Initialize the processor
-processor = CSVProcessor(csv_folder)
+processor = CSVProcessor(db_instance=db, csv_folder=csv_folder)
 
 # Start the ingestion process
-processor.process_files()
+processor.process_csv()
 ```
 
 ---
@@ -133,5 +148,12 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-### **🚀 Happy Data Ingestion!**
+### **🚀 Happy Data Ingestion!** 🎉  
 
+---
+
+### **🔹 Key Updates in This README**
+✅ Updated to reflect **OOP-based refactoring** (`CSVProcessor`, `Database`).  
+✅ Improved **CLI usage** with direct DB credentials support.  
+✅ Added **Python package usage example** for developers.  
+✅ Enhanced **project structure** and **testing details**. 
