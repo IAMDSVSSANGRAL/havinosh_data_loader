@@ -1,4 +1,4 @@
-### **📦 `havinosh_data_loader`: CSV to PostgreSQL Ingestion**  
+### 📦 `havinosh_data_loader`: CSV to PostgreSQL Ingestion  
 **Seamlessly load CSV files into PostgreSQL dynamically.**  
 
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)  
@@ -8,22 +8,23 @@
 
 ---
 
-## 🚀 **Overview**  
-`havinosh_data_loader` is a Python package designed to automatically **detect CSV structure**, **create tables**, and **insert data into PostgreSQL** with minimal effort. Just drop your CSV files into a folder, and `havinosh_data_loader` will handle everything dynamically.  
+## 🚀 Overview  
+`havinosh_data_loader` is a powerful Python package designed to **automatically detect CSV structure**, **create tables**, and **insert data into PostgreSQL** with minimal effort.  
+Simply drop your CSV files into a folder, and `havinosh_data_loader` will handle everything dynamically.  
 
 ---
 
-## 📌 **Features**  
+## 📌 Features  
 ✅ **Automatic Table Creation** – Reads CSV headers and maps them to PostgreSQL columns  
 ✅ **Dynamic Schema Detection** – Infers data types automatically  
 ✅ **Batch Data Insertion** – Efficiently loads large datasets  
 ✅ **Error Handling** – Logs errors and provides detailed debugging  
-✅ **Environment & CLI Configurations** – Supports `.env` file & CLI args for database credentials  
+✅ **Environment Configuration** – Uses `.env` file for database credentials  
 ✅ **Modular & Extensible** – Well-structured for easy modifications  
 
 ---
 
-## 📂 **Project Structure**  
+## 📂 Project Structure  
 ```
 havinosh_data_loader/
 │── havinosh_data_loader/                   # Main package directory
@@ -47,7 +48,7 @@ havinosh_data_loader/
 
 ---
 
-## 🛠 **Installation**  
+## 🛠 Installation  
 
 ### **1️⃣ Install via pip**  
 Once published to PyPI, you can install `havinosh_data_loader` using:  
@@ -65,10 +66,10 @@ pip install -r requirements.txt
 
 ---
 
-## ⚙ **Usage**  
+## ⚙ Usage  
 
 ### **1️⃣ Set Up Your Environment**  
-#### 🔹 **Option 1: Using a `.env` File**  
+#### 🔹 **Using a `.env` File** (Recommended)  
 Create a **`.env`** file in the root directory and add:  
 ```ini
 DB_NAME=your_database
@@ -78,8 +79,7 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 
-#### 🔹 **Option 2: Providing Credentials via CLI**  
-No need for `.env` if you pass credentials directly via CLI.
+💡 **Note:** This package **requires** `.env` for database credentials.
 
 ---
 
@@ -89,20 +89,13 @@ No need for `.env` if you pass credentials directly via CLI.
 python scripts/ingest.py --folder csv_files
 ```
 
-#### **Ingest with Custom Database Credentials**  
-```sh
-python scripts/ingest.py --db_name mydb --user admin --password mypass --folder csv_files
-```
-
 ---
 
 ### **3️⃣ Using the Python Package in Your Script**  
 You can also use `havinosh_data_loader` programmatically within a Python script:
 
 ```python
-from havinosh_data_loader.db_utils import Database
-from havinosh_data_loader.process_csv import CSVProcessor
-from havinosh_data_loader.config import Config
+from havinosh_data_loader import Database, CSVProcessor, Config
 
 # Load database configuration from .env
 config = Config()
@@ -120,7 +113,7 @@ processor.process_csv()
 
 ---
 
-## 🧪 **Testing**  
+## 🧪 Testing  
 Run unit tests using:  
 ```sh
 pytest tests/
@@ -128,12 +121,18 @@ pytest tests/
 
 ---
 
-## 📜 **License**  
+## 🔥 Limitations & Future Enhancements  
+- 🚧 **Does not support nested JSON in CSV fields**  
+- 🚀 **Planned:** Add parallel processing for large datasets  
+
+---
+
+## 📜 License  
 This project is licensed under the **MIT License** – see the [`LICENSE`](LICENSE) file for details.  
 
 ---
 
-## 🤝 **Contributing**  
+## 🤝 Contributing  
 Contributions are welcome! Please follow these steps:  
 1. **Fork** the repository  
 2. **Create a branch** (`feature-xyz`)  
@@ -142,18 +141,21 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📬 **Contact**  
+## 📬 Contact  
 📧 Email: support@havinosh.com  
 🌐 GitHub: [VISHAL SINGH SANGRAL](https://github.com/IAMDSVSSANGRAL)  
 
 ---
 
-### **🚀 Happy Data Ingestion!** 🎉  
+## 🔹 What's New in This Version?  
+This version includes **major improvements** to enhance usability and clarity:  
+✅ **Refactored to OOP-based structure** – `CSVProcessor`, `Database` classes added  
+✅ **Improved CLI Usage** – Removed incorrect `--db_name` argument, making `.env` mandatory  
+✅ **Better Documentation** – Clarified **import structure** for easier package use  
+✅ **Enhanced Logging & Exception Handling** – Better debugging experience  
+✅ **More Detailed Testing Instructions** – Now includes a dedicated testing section  
+✅ **Added Future Enhancements Section** – Transparency on upcoming features  
 
 ---
 
-### **🔹 Key Updates in This README**
-✅ Updated to reflect **OOP-based refactoring** (`CSVProcessor`, `Database`).  
-✅ Improved **CLI usage** with direct DB credentials support.  
-✅ Added **Python package usage example** for developers.  
-✅ Enhanced **project structure** and **testing details**. 
+### 🚀 **Happy Data Ingestion!** 🎉  
